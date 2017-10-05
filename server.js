@@ -6,11 +6,13 @@ var io = require('socket.io')(http);
 // Set Handlebars as the view engine
 var exphbs = require('express-handlebars');
 
+
+
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 // GET function 
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/controller.js');
+  res.sendFile(__dirname + './controllers/burger_controller.js');
 });
 
 io.on('connection', function(socket){
@@ -27,3 +29,5 @@ io.on('connection', function(socket){
       console.log('user disconnected');
     });
   });
+
+ 
