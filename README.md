@@ -1,2 +1,2 @@
-# safe-chat
-SafeChat: A messaging app that keeps your chats safe from prying eyes.
+# SafeChat
+## The messaging app that keeps you safe from prying eyes.
