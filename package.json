@@ -21,9 +21,14 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.1",
     "express-handlebars": "^3.0.0",
+<<<<<<< HEAD
+    "mocha": "^4.0.0",
+    "mysql": "^2.14.1"
+=======
     "http": "0.0.0",
     "method-override": "^2.3.10",
     "mysql": "^2.14.1",
     "socket.io": "^2.0.3"
+>>>>>>> 12240c28fce31fb771300fd3148754dca42485d0
   }
 }

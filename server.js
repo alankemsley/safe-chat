@@ -3,6 +3,7 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+
 // Set Handlebars as the view engine
 var exphbs = require('express-handlebars');
 
