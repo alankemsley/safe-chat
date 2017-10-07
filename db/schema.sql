@@ -11,11 +11,12 @@ photo VARCHAR(999),
 username VARCHAR(20) NOT NULL,
 message VARCHAR(500) NOT NULL,
 timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-PRIMARY KEY (id)
+PRIMARY KEY (username)
 );
 
 
 CREATE TABLE dummychat(
+  username VARCHAR(20) NOT NULL,
   message VARCHAR(500) NOT NULL
 );
 
