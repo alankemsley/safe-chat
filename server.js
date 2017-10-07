@@ -12,7 +12,7 @@ server.listen(process.env.PORT || 3001);
   console.log("server running");
   app.get('/', function (req, res) {
 
-    //WE NEED TO ADD THE CORRCT HANDLEBARS PAGE
+    //WE NEED TO ADD THE CORRCT HANDLEBARS PAGE reference
     res.sendFile(__dirname + '/index.html');
 });
 
