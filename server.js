@@ -11,6 +11,8 @@ connections = [];
 server.listen(process.env.PORT || 3001);
   console.log("server running");
   app.get('/', function (req, res) {
+
+    //WE NEED TO ADD THE CORRCT HANDLEBARS PAGE
     res.sendFile(__dirname + '/index.html');
 });
 
