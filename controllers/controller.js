@@ -3,21 +3,20 @@ var express = require('express');
 var router = express.Router();
 
 // Import the model (app.js) to use its database functions.
-var appModelsFolder = require('../models/app.js');
+var messageModel = require('../models/app.js');
 
 // 1.Create the routes and associated logic
 // 1.2 Creating a GET function
 
 router.get('/', function(req, res) {
- 
-    appModelsFolder.selectAll(function(data) {
-// Creating a message obejct which will contain all the info from models/app.js
+    messageModel.getMessages(function(data) {
       var msgObject = {
         msg: data
       };
-      // console.log(msgObject);
+      console.log(msgObject);
+      
       res.render('index', msgObject);
-    });
+    })
   });
 
 // 1.3 creating a post function
