@@ -14,7 +14,6 @@ router.get('/', function(req, res) {
         msg: data
       };
       console.log(msgObject);
-      
       res.render('index', msgObject);
     })
   });
