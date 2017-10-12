@@ -5,6 +5,7 @@ var http = require('http').Server(app);
 var ioConnect = require("./config/io")(http);
 var connection = require('./config/connection');
 
+
 // Set Handlebars as the view engine
 var exphbs = require('express-handlebars');
 
@@ -14,6 +15,7 @@ console.log(port + " Port 3000 is on fire!!");
 // Setting handlebars as the main engine 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
+
 // GET function 
 app.get('/', function(req, res){
   res.render("index");
