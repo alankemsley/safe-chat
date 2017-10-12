@@ -1,5 +1,6 @@
-//specifies what to CRUD with the ORM queries...
+// this page runs the app...nodemon anyone?
 
+var mysql=require('mysql');
 var orm = require("../config/orm");
 var ioConnect = require("../config/io");
 
@@ -15,4 +16,12 @@ var messageModel = {
   },
 };
 
+function renderMessages(){
+  var query = "SELECT * FROM dummychat";
+    connection.query(query, function(err, res){
+      console.log(res);
+    });
+}
 module.exports = messageModel;
+
+

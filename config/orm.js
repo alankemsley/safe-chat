@@ -12,6 +12,7 @@ var orm = {
       cb(result);
     });
   },
+  
   create: function(userMessage, cb) {
     var queryString = "INSERT INTO messages(username, message) VALUES(?, ?);";
     connection.query(queryString, [userMessage.username, userMessage.message], function(err, result) {
