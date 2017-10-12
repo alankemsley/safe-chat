@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 
 // Import the model (app.js) to use its database functions.
-var messageModel = require('../models/app.js');
+var messageModel = require('../models/message.js');
 
 // 1.Create the routes and associated logic
 // 1.2 Creating a GET function
@@ -15,17 +15,6 @@ router.get('/', function(req, res) {
       };
       console.log(msgObject);
       res.render('index', msgObject);
-    })
-  });
-
-// 1.3 creating a post function
-  router.post('/', function(req, res) {
-    appModelsFolder.insertOne([
-      ''
-    ], [
-      req.body.msg
-    ], function(data) {
-      res.redirect('/');
     });
   });
 

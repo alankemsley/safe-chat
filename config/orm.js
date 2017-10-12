@@ -13,8 +13,8 @@ var orm = {
     });
   },
   create: function(userMessage, cb) {
-    var queryString = "INSERT INTO messages(userName, messages) VALUES( " + userName + "," + userMessage + ");";
-    connection.query(queryString, function(err, result) {
+    var queryString = "INSERT INTO messages(username, message) VALUES(?, ?);";
+    connection.query(queryString, [userMessage.username, userMessage.message], function(err, result) {
       if (err) {
         throw err;
       }
