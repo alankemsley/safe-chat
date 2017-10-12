@@ -1,6 +1,7 @@
 // Pull in required dependencies
 var express = require('express');
 var router = express.Router();
+var orm = require('../config/orm.js');
 
 // Import the model (app.js) to use its database functions.
 var messageModel = require('../models/app.js');

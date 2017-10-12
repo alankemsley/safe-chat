@@ -1,20 +1,17 @@
-// Dependencies
-var mysql = require("mysql");
+//this page connects to mysql
 
-// Connect to mysql
+var mysql=require('mysql');
+
+
 var connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
+  host:"localhost",
+  port:3306,
+  user:"root",
+  password:"",
   database: "safechat"
 });
 
-connection.connect(function(err) {
-  if (err) {
-    throw err;
-  }
-  console.log("Connected to database as ID: " + connection.threadId);
+connection.connect(function(err){
+  if(err) throw err;
+  console.log("mysql is connected on port 3306");
 });
-
-// Export
-module.exports = connection;
