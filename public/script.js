@@ -20,6 +20,8 @@
       $messageForm.submit(function(e) {
         e.preventDefault();
 
+        if (!username) return;
+
         var message = $message.val();
         $message.val("");
 
