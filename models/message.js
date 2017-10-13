@@ -8,17 +8,13 @@ var ioConnect = require("../config/io");
 // this code specified how to make the render query
 var messageModel = {
   getMessages: function(cb) {
-    ioConnect.on("connection", function(socket) {
-      socket.emit("youreventname", {message: "Some data to emit"});
-      orm.all("messages", cb);
-    });
-    
+    orm.all("messages", cb);
   },
 // this code specified how to post the new message
-  postMessage: function(cb) {
+  postMessage: function(userMessage, cb) {
     orm.create(userMessage, cb);
   },
-}
+};
 
 function renderMessages(){
   var query = "SELECT * FROM dummychat";

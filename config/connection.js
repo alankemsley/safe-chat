@@ -15,3 +15,5 @@ connection.connect(function(err){
   if(err) throw err;
   console.log("mysql is connected on port 3306");
 });
+
+module.exports = connection;
