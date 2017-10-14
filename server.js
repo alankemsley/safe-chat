@@ -1,11 +1,10 @@
 // Pull on Dependeincies 
 var express = require('express');
-var app = express();
 var path = require("path");
+var app = express();
 var http = require('http').Server(app);
 var ioConnect = require("./config/io")(http);
 var connection = require('./config/connection');
-
 
 // Set Handlebars as the view engine
 var exphbs = require('express-handlebars');
@@ -13,10 +12,10 @@ var exphbs = require('express-handlebars');
 var port = process.env.PORT || 3000;
 console.log(port + " Port 3000 is on fire!!");
 
-app.use(express.static("public"));
 // Setting handlebars as the main engine 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
+app.use(express.static("public"));
 
 // GET function 
 app.get('/', function(req, res){
@@ -27,10 +26,7 @@ app.get('/', function(req, res){
 ioConnect.on('connection', function(socket){
   console.log('a user connected');
 });
-// Creating a PORT
-// http.listen(3000, function(){
-//   console.log('listening on *:3000');
-// });
+
 // Creating a connect and disconnect function
 ioConnect.on('connection', function(socket){
     console.log('a user connected');
@@ -45,4 +41,3 @@ var routes = require('./controllers/controller.js');
 app.use('/', routes);
 
 http.listen(port);
- 
