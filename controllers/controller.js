@@ -10,14 +10,16 @@ var messageModel = require('../models/message.js');
 // 1.2 Creating a GET function
 
 router.get('/', function(req, res) {
+  console.log("Router get '/'");
     messageModel.getMessages(function(data) {
       var msgObject = {
         msg: data
       };
-      console.log(msgObject);
+      console.log("msgObject: ", msgObject);
       res.render('index', msgObject);
     });
   });
+
 
 // Export routes for server.js to use.
 module.exports = router;
