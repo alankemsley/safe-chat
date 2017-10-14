@@ -1,19 +1,19 @@
-//this page connects to mysql
+// Dependency
+var mysql=require("mysql");
 
-var mysql=require('mysql');
-
-
+// Connect to MySQL
 var connection = mysql.createConnection({
-  host:"localhost",
-  port:3306,
-  user:"root",
-  password:"",
+  host: "localhost",
+  port: 3306,
+  user: "root",
+  password: "",
   database: "safechat"
 });
 
 connection.connect(function(err){
-  if(err) throw err;
-  console.log("mysql is connected on port 3306");
+  if(err) {throw err;}
+  console.log("Connected to database on Port 3306 as ID: " + connection.threadID);
 });
 
+// Export
 module.exports = connection;

@@ -25,12 +25,22 @@ app.get('/', function(req, res){
 
 // Connect and disconnect functions
 ioConnect.on('connection', function(socket){
-  socket.on("message", function(message){
-    ioConnect.emit("message", message);
-    messageJS.postMessage(message, function(response) {
+  // Get all messages from database upon connecting
+  socket.on("messages", function(messages){
+    ioConnect.emit("messages", messages);
+    messageJS.all(messages, function(response) {
       console.log(response);
     });
-  })
+  });
+
+  // If user sends a message
+  socket.on("message", function(message){
+    ioConnect.emit("message", message);
+    messageJS.create(message, function(response) {
+      console.log(response);
+    });
+  });
+  // If user disconnects
   socket.on('disconnect', function(){
     console.log('User disconnected');
   });

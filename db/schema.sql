@@ -1,24 +1,21 @@
 DROP DATABASE IF EXISTS safechat;
-
 CREATE DATABASE safechat;
-
 USE safechat;
 
-
 CREATE TABLE messages(
-id INT AUTO_INCREMENT NOT NULL,
-photo VARCHAR(999),
-username VARCHAR(20) NOT NULL,
-message VARCHAR(500) NOT NULL,
-timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-PRIMARY KEY (id)
+  id INT AUTO_INCREMENT NOT NULL,
+  username VARCHAR(30) NOT NULL,
+  message VARCHAR(500) NOT NULL,
+  timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(id)
 );
-
 
 CREATE TABLE dummychat(
-  username VARCHAR(20) NOT NULL,
+  username VARCHAR(30) NOT NULL,
   message VARCHAR(500) NOT NULL
 );
+
+INSERT INTO messages(username,message) VALUES("chatbot", "This chat is pulling from the database.");
 
 INSERT INTO dummychat(username,message) VALUES("kenny", "good meeting today");
 INSERT INTO dummychat(username,message) VALUES("brian", "great presentation");

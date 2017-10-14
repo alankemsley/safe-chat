@@ -5,11 +5,11 @@ var ioConnect = require("../config/io");
 
 // Render query
 var messageModel = {
-  getMessages: function(cb) {
+  all: function(messages, cb) {
     orm.all("messages", cb);
   },
 // Post new message
-  postMessage: function(userMessage, cb) {
+  create: function(userMessage, cb) {
     orm.create(userMessage, cb);
   },
 };
