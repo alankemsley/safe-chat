@@ -21,16 +21,6 @@ $(document).ready(function(){
     Materialize.toast("Welcome, " + name + " !", 2000);
   }
 
-  // Send message
-
-  // Can delete if works:
-  // messageForm.submit(function(e) {
-  //   e.preventDefault();
-  //   var message = message.val();
-  //   message.val("");
-  //   socket.emit('message', { username:  name, message: message });
-  // });
-
   socket.on('message', function(userMessage) {
     chat.append('<p><h6>' + userMessage.username + '</h6>' + userMessage.message + '</p>');
   });
@@ -38,6 +28,13 @@ $(document).ready(function(){
   $('#sendMessage').click(function(){
     socket.emit("message", { username: name, message: message.val()});
     console.log("Message was sent!");
+    $('#messageForm')[0].reset();
+  });
+
+  $('#messageForm').submit(function(e){
+    console.log("messageForm is here");
+    e.preventDefault();
+    $('#sendMessage').click();
   });
 
 });
