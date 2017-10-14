@@ -3,7 +3,7 @@ $(document).ready(function(){
   var socket = io();
   var messageForm = $('#messageForm');
   var message = $('#message');
-  var chat = $('#chat');
+  var chat = $('#messages');
   var messageArea = $('#messageArea');
   var users = $('#users');
   
@@ -32,7 +32,7 @@ $(document).ready(function(){
   // });
 
   socket.on('message', function(userMessage) {
-    chat.append('<div class = "well"><strong>' + userMessage.username + '</strong>:' + userMessage.message + '<div>');
+    chat.append('<p><h6>' + userMessage.username + '</h6>' + userMessage.message + '</p>');
   });
 
   $('#sendMessage').click(function(){
