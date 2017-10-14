@@ -5,6 +5,7 @@ var app = express();
 var http = require('http').Server(app);
 var ioConnect = require("./config/io")(http);
 var connection = require('./config/connection');
+var messageJS = require("./models/message.js");
 
 // Set Handlebars as the view engine
 var exphbs = require('express-handlebars');
@@ -20,20 +21,22 @@ app.use(express.static("public"));
 // GET function 
 app.get('/', function(req, res){
   res.render("index");
-  // res.sendFile(path.join(__dirname,  './controllers/controller.js'));
-});
-
-ioConnect.on('connection', function(socket){
-  console.log('a user connected');
+  // res.sendFile(path.join(__dirname, './controllers/controller.js'));
 });
 
 // Creating a connect and disconnect function
 ioConnect.on('connection', function(socket){
-    console.log('a user connected');
-    socket.on('disconnect', function(){
-      console.log('user disconnected');
+  socket.on("message", function(message){
+    console.log("Message received: " + message);
+    ioConnect.emit("message", message);
+    messageJS.postMessage(message, function(response) {
+      console.log(response);
     });
+  })
+  socket.on('disconnect', function(){
+    console.log('User disconnected');
   });
+});
 
  // Import routes and give the server access to them
 var routes = require('./controllers/controller.js');
