@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  console.log("script.js linked properly");
   var socket = io();
   var messageForm = $('#messageForm');
   var message = $('#message');
@@ -21,19 +22,22 @@ $(document).ready(function(){
   }
 
   // Send message
-  messageForm.submit(function(e) {
-    e.preventDefault();
-    var message = message.val();
-    message.val("");
-    socket.emit('message', { username:  name, message: message });
-  });
+
+  // Can delete if works:
+  // messageForm.submit(function(e) {
+  //   e.preventDefault();
+  //   var message = message.val();
+  //   message.val("");
+  //   socket.emit('message', { username:  name, message: message });
+  // });
 
   socket.on('message', function(userMessage) {
     chat.append('<div class = "well"><strong>' + userMessage.username + '</strong>:' + userMessage.message + '<div>');
   });
 
   $('#sendMessage').click(function(){
-    console.log("message was submitted");
-    var socket = io();
-    socket.emit("message", { username: name.val(), message: message.val()});
+    socket.emit("message", { username: name, message: message.val()});
+    console.log("Message was sent!");
   });
+
+});
