@@ -1,5 +1,6 @@
 // Pull on Dependeincies 
-var app = require('express')();
+var express = require('express');
+var app = express();
 var path = require("path");
 var http = require('http').Server(app);
 var ioConnect = require("./config/io")(http);
@@ -12,6 +13,7 @@ var exphbs = require('express-handlebars');
 var port = process.env.PORT || 3000;
 console.log(port + " Port 3000 is on fire!!");
 
+app.use(express.static("public"));
 // Setting handlebars as the main engine 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
