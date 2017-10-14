@@ -1,16 +1,14 @@
-// this page runs the app...nodemon anyone?
-
+// Dependencies
 var mysql=require('mysql');
 var orm = require("../config/orm");
 var ioConnect = require("../config/io");
 
-
-// this code specified how to make the render query
+// Render query
 var messageModel = {
   getMessages: function(cb) {
     orm.all("messages", cb);
   },
-// this code specified how to post the new message
+// Post new message
   postMessage: function(userMessage, cb) {
     orm.create(userMessage, cb);
   },

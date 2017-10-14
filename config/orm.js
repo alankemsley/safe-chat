@@ -1,4 +1,4 @@
-//Here we creates general purpose functions to create queries
+// Query functions
 
 var connection = require('./connection'); 
 

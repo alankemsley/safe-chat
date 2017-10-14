@@ -1,14 +1,13 @@
-// Pull in required dependencies
+// Dependencies
 var express = require('express');
 var router = express.Router();
 var orm = require('../config/orm.js');
 
-// Import the model (app.js) to use its database functions.
+// Import the model (messages.js) to use its database functions
 var messageModel = require('../models/message.js');
 
-// 1.Create the routes and associated logic
-// 1.2 Creating a GET function
-
+// Create the routes and associated logic
+// Creating a GET function
 router.get('/', function(req, res) {
   console.log("Router get '/'");
     messageModel.getMessages(function(data) {
@@ -20,6 +19,5 @@ router.get('/', function(req, res) {
     });
   });
 
-
-// Export routes for server.js to use.
+// Export routes for server.js to use
 module.exports = router;
