@@ -1,0 +1,53 @@
+/* General */
+html {
+  font-family: Quicksand, sans-serif;
+}
+
+h6 {
+  color: #2196f3;
+}
+
+/* Header */
+#logo {
+  font-weight: bold;
+}
+
+/* Input Section */
+#message {
+  padding-left: 20px;
+  font-size: 18pt;
+}
+.bubble {
+  border-radius: 25px !important;
+}
+
+#send-btn {
+  font-weight: bold;
+  margin-top: 20px;
+  margin-left: 10px;
+  width: 28px;
+  height: 28px;
+}
+
+/* Messages Section */
+#messageArea {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#messages {
+  font-size: 18pt;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+/* Footer */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
