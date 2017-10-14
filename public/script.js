@@ -22,6 +22,8 @@ $(document).ready(function(){
     Materialize.toast("Welcome, " + name + " !", 2000);
   }
 
+  // (Code here for getting previously sent messages from database using handlebars)
+
   // Append message to chat window when message is sent
   socket.on('message', function(userMessage) {
     chat.append('<p><h6>' + userMessage.username + '</h6>' + userMessage.message + '</p>');
@@ -36,7 +38,7 @@ $(document).ready(function(){
       $('#messageForm')[0].reset();
       // If user sends a blank message:
     } else {
-      Materialize.toast("You must ener a message.", 2000);
+      Materialize.toast("You didn't type a message!", 2000);
     }
   });
 
