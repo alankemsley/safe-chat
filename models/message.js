@@ -3,9 +3,9 @@ var mysql=require('mysql');
 var orm = require("../config/orm");
 var ioConnect = require("../config/io");
 
-// Render query
+// Render-query for 
 var messageModel = {
-  all: function(messages, cb) {
+  all: function(tableInput, cb) {
     orm.all("messages", cb);
   },
 // Post new message
@@ -14,12 +14,4 @@ var messageModel = {
   },
 };
 
-function renderMessages(){
-  var query = "SELECT * FROM dummychat";
-    connection.query(query, function(err, res){
-      console.log(res);
-    });
-}
 module.exports = messageModel;
-
-

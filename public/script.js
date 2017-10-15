@@ -24,6 +24,7 @@ $(document).ready(function(){
 
   // (Code here for getting previously sent messages from database using handlebars)
 
+
   // Append message to chat window when message is sent
   socket.on('message', function(userMessage) {
     chat.append('<p><h6>' + userMessage.username + '</h6>' + userMessage.message + '</p>');
