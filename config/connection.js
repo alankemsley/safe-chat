@@ -15,6 +15,7 @@ connection.connect(function(err){
   console.log("Connected to database on Port 3306 as ID: " + connection.threadID);
 });
 
+
 // Export
 module.exports = connection;
 
