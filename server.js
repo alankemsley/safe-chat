@@ -29,17 +29,18 @@ app.get('/', function(req, res){
   // res.sendFile(path.join(__dirname, './controllers/controller.js'));
 });
 
-//WILL IT LOAD?
+// Get messages from database upon page load
 orm.all("messages", function(response) {
-      console.log("TEST: Get messages from database on load.");
-    });
+  console.log("Getting messages from database...");
+});
 
-// Connect and disconnect functions
+// Socket.io functions
 ioConnect.on('connection', function(socket){
+  // Log
+  console.log("User connected.");
   // Get all messages from database upon connecting
   socket.on("messages", function(messages){
     ioConnect.emit("messages", messages);
-  
   });
 
   // If user sends a message
@@ -49,10 +50,12 @@ ioConnect.on('connection', function(socket){
       console.log("User sent a message.");
     });
   });
+
   // If user disconnects
-  socket.on('disconnect', function(){
+  socket.on("disconnect", function(){
     console.log('User disconnected.');
   });
+
 });
 
 // Import routes and give the server access to them
