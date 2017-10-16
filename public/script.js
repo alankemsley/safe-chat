@@ -33,6 +33,17 @@ $(document).ready(function(){
     chat.append('<p><h6>' + userMessage.username + '</h6>' + userMessage.message + '</p>');
   });
 
+
+// Hide function 
+document.addEventListener('keydown', 'keyup',  function(e) {
+  var key = e.keyCode ? e.keyCode : e.which;
+  if(key === 192) {
+      $('#messageArea2').removeClass('hide');
+      $('#messageArea').addClass('hide');
+  } 
+});
+
+
   // When user clicks SEND, send message to DB and clear input field
   $('#sendMessage').click(function(){
     // If the user sends a legitiamte message:

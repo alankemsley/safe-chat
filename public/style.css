@@ -35,6 +35,11 @@ h6 {
   padding-top: 50px;
   padding-bottom: 150px;
 }
+/* message Area 2 */
+#messageArea2 {
+  padding-top: 50px;
+  padding-bottom: 150px;
+}
 
 #messages {
   font-size: 18pt;

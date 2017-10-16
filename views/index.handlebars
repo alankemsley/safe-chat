@@ -27,7 +27,42 @@
       </div>
     </div>
   </div>
+
+
+<div  class="hide "id="messageArea2" class="row scrollspy"  >
+    <div class="container">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 grey-text text-darken-2 white bubble" id="messages">
+            <p><h6>Alan</h6>What's up?</p>
+            <p><h6>Jimmy</h6>Just coding per usual!</p>
+            <p><h6>Alan</h6>Same here! Just got the orm fixed!</p>
+            <p><h6>Jimmy</h6>Cool! I got some back end stuff going on!</p>
+            <p><h6>Alan</h6>Are you going to the meet up tonight?</p>
+            <p><h6>Jimmy</h6>Sure! It will be fun!</p>
+            <p><h6>Alan</h6>See you there!</p>
+
+            
+
+            {{#each messages}}
+              <p><h6>{{this.username}}</h6>{{this.message}}</p>
+            {{/each}}
+          </div>
+        </div>
+        <div class="scrollspy" id="marker"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
 </main>
+
+
 
 {{!-- MESSAGE INPUT SECTION --}}
 <footer class="page-footer blue">
