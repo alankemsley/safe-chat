@@ -22,8 +22,19 @@ var orm = {
       }
         cb(result);
     });
+  },
+  //Select from dummychat
+  decoy: function(cb){
+    var queryString = "SELECT * FROM dummychat;";
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      console.log(result);
+    });
   }
 };
 
+// Export orm variable
 module.exports = orm;
 
