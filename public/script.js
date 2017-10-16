@@ -30,21 +30,21 @@ $(document).ready(function(){
     chat.append('<p><h6>' + userMessage.username + '</h6>' + userMessage.message + '</p>');
   });
 
-  // Toggle fake messages 
+  // Toggle real messages 
   document.addEventListener("keydown", function(e) {
-    var key = e.keyCode ? e.keyCode : e.which;
-    if(key === 192) {
-        $('#messageArea2').removeClass("hide");
-        $('#messageArea').addClass("hide");
-    } 
-  });
-
-  // Toggle back to real messages
-  document.addEventListener("keyup", function(e) {
     var key = e.keyCode ? e.keyCode : e.which;
     if(key === 192) {
         $('#messageArea2').addClass("hide");
         $('#messageArea').removeClass("hide");
+    } 
+  });
+
+  // Toggle fake messages
+  document.addEventListener("keydown", function(e) {
+    var key = e.keyCode ? e.keyCode : e.which;
+    if(key === 27) {
+        $('#messageArea2').removeClass("hide");
+        $('#messageArea').addClass("hide");
     } 
   });
 
