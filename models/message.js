@@ -17,4 +17,5 @@ var messageModel = {
   },
 };
 
+// Export
 module.exports = messageModel;

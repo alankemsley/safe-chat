@@ -26,14 +26,9 @@ app.set("view engine", "handlebars");
 // Set public directory as default location for static content
 app.use(express.static("public"));
 
-// Get messages from database upon page load
-// orm.all("messages", function(response) {
-//   console.log("Getting messages from database...");
-// });
-
 // Socket.io functions
 ioConnect.on("connection", function(socket){
-  // Log
+  // Log connection
   console.log("User connected.");
   // Get all messages from database upon connecting
   socket.on("messages", function(messages){
@@ -52,12 +47,11 @@ ioConnect.on("connection", function(socket){
   socket.on("disconnect", function(){
     console.log('User disconnected.');
   });
-
 });
 
 // On every route, use the routes middleware
 app.use("/", routes);
 
-// Listen on port
+// Listener
 http.listen(port);
 

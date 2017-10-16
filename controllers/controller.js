@@ -1,7 +1,6 @@
 // Dependencies
 var express = require("express");
 var router = express.Router();
-// var orm = require("../config/orm.js");
 var messageModel = require("../models/message.js");
 
 // GET route
@@ -25,5 +24,5 @@ router.post("/", function(req, res) {
   });
 });
 
-// Export routes for server.js to use
+// Export
 module.exports = router;
