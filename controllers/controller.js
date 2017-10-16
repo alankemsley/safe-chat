@@ -1,22 +1,22 @@
 // Dependencies
 var express = require("express");
 var router = express.Router();
-var orm = require("../config/orm.js");
+// var orm = require("../config/orm.js");
 var messageModel = require("../models/message.js");
 
 // GET route
 router.get("/", function(req, res) {
-  messageModel.getMessages(function(data) {
-    var msgObject = {
+  messageModel.all(function(data) {
+    var hbsObject = {
       messages: data
     };
-    res.render("index", msgObject);
+    res.render("index", hbsObject);
   });
 });
 
 // POST route
 router.post("/", function(req, res) {
-  messageModel.postMessage([
+  messageModel.create([
     "username", "message"
   ], [
     req.body.username, req.body.message

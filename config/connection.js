@@ -1,5 +1,5 @@
 // Dependency
-var mysql=require("mysql");
+var mysql = require("mysql");
 
 // Connect to MySQL
 var connection = mysql.createConnection({

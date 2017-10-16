@@ -1,13 +1,13 @@
-// Dependencies
-var mysql=require('mysql');
-var orm = require("../config/orm");
+// Import the ORM to create functions that will interact with the database.
+var orm = require("../config/orm.js");
+
+// Socket.io dependency
 var ioConnect = require("../config/io");
 
-// Render-query for 
 var messageModel = {
   // Get old messages
-  all: function(userMessage, cb) {
-    orm.all(userMessage, function(res) {
+  all: function(cb) {
+    orm.all("messages", function(res) {
       cb(res);
     });
   },

@@ -1,14 +1,15 @@
 // Dependeincies 
-var express = require('express');
+var express = require("express");
 var path = require("path");
 var app = express();
-var http = require('http').Server(app);
+var http = require("http").Server(app);
 var ioConnect = require("./config/io")(http);
-var connection = require('./config/connection');
+var connection = require("./config/connection");
 var messageJS = require("./models/message.js");
-var exphbs = require('express-handlebars');
-var bodyParser = require('body-parser');
+var exphbs = require("express-handlebars");
+var bodyParser = require("body-parser");
 var orm = require("./config/orm");
+var routes = require("./controllers/controller.js");
 
 // Port
 var port = process.env.PORT || 3000;
@@ -19,23 +20,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Set handlebars as the main engine 
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
+app.engine("handlebars", exphbs({defaultLayout: "main"}));
+app.set("view engine", "handlebars");
+
+// Set public directory as default location for static content
 app.use(express.static("public"));
 
-// GET function 
-app.get('/', function(req, res){
-  res.render("index");
-  // res.sendFile(path.join(__dirname, './controllers/controller.js'));
-});
-
 // Get messages from database upon page load
-orm.all("messages", function(response) {
-  console.log("Getting messages from database...");
-});
+// orm.all("messages", function(response) {
+//   console.log("Getting messages from database...");
+// });
 
 // Socket.io functions
-ioConnect.on('connection', function(socket){
+ioConnect.on("connection", function(socket){
   // Log
   console.log("User connected.");
   // Get all messages from database upon connecting
@@ -58,9 +55,8 @@ ioConnect.on('connection', function(socket){
 
 });
 
-// Import routes and give the server access to them
-var routes = require('./controllers/controller.js');
-app.use('/', routes);
+// On every route, use the routes middleware
+app.use("/", routes);
 
 // Listen on port
 http.listen(port);
