@@ -25,24 +25,19 @@ $(document).ready(function(){
     Materialize.toast("Welcome, " + name + " !", 2000);
   }
 
-  // (Code here for getting previously sent messages from database using handlebars)
-
-
   // Append message to chat window when message is sent
   socket.on('message', function(userMessage) {
     chat.append('<p><h6>' + userMessage.username + '</h6>' + userMessage.message + '</p>');
   });
 
-
-// Hide function 
-document.addEventListener('keydown', 'keyup',  function(e) {
-  var key = e.keyCode ? e.keyCode : e.which;
-  if(key === 192) {
-      $('#messageArea2').removeClass('hide');
-      $('#messageArea').addClass('hide');
-  } 
-});
-
+  // Toggle between real and fake messages 
+  document.addEventListener("keydown", "keyup",  function(e) {
+    var key = e.keyCode ? e.keyCode : e.which;
+    if(key === 192) {
+        $('#messageArea2').removeClass("hide");
+        $('#messageArea').addClass("hide");
+    } 
+  });
 
   // When user clicks SEND, send message to DB and clear input field
   $('#sendMessage').click(function(){
@@ -65,5 +60,4 @@ document.addEventListener('keydown', 'keyup',  function(e) {
 
   // Materialize smooth scrolling effect to marker
   $('.scrollspy').scrollSpy();
-
 });
