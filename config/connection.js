@@ -12,7 +12,7 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err){
   if(err) {throw err;}
-  console.log("Connected to database on Port 3306 as ID: " + connection.threadID);
+  console.log("Connected to database on port 3306.");
 });
 
 // Export

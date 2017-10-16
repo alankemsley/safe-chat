@@ -1,5 +1,8 @@
 $(document).ready(function(){
+  // Confirmation message for testing
   console.log("Client-side JavaScript file (script.js) is properly linked. You may begin chatting.");
+  
+  // Variables
   var socket = io();
   var messageForm = $('#messageForm');
   var message = $('#message');
@@ -48,5 +51,8 @@ $(document).ready(function(){
     e.preventDefault();
     $('#sendMessage').click();
   });
+
+  // Materialize smooth scrolling effect to marker
+  $('.scrollspy').scrollSpy();
 
 });
