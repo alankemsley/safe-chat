@@ -3,7 +3,7 @@
 <nav>
   <div class="nav-wrapper blue">
     <div class="row">
-      <a href="#" class="brand-logo center" id="logo"><i class="material-icons">forum</i>safeCHAT</a>
+      <a href="#messageArea" class="brand-logo center" id="logo"><i class="material-icons">forum</i>safeCHAT</a>
     </div>
   </div>
 </nav>
@@ -11,28 +11,19 @@
 
 {{!-- MESSAGES SECTION --}}
 <main class="blue lighten-5">
-  <div class="row" id="messageArea">
+  <div class="row scrollspy" id="messageArea">
     <div class="container">
       <div class="container">
         <div class="row">
           <div class="col s12 grey-text text-darken-2 white bubble" id="messages">
             <p><h6>chatbot</h6>Hello. Welcome to safeChat, a safe space to chat!</p>
-            <p><h6>chatbot</h6>Hello. Welcome to safeChat, a safe space to chat!</p>
-            <p><h6>chatbot</h6>Hello. Welcome to safeChat, a safe space to chat!</p>
-            <p><h6>chatbot</h6>Hello. Welcome to safeChat, a safe space to chat!</p>
-            <p><h6>chatbot</h6>Hello. Welcome to safeChat, a safe space to chat!</p>
-            <p><h6>chatbot</h6>Hello. Welcome to safeChat, a safe space to chat!</p>
-            <p><h6>chatbot</h6>Hello. Welcome to safeChat, a safe space to chat!</p>
-            <p><h6>chatbot</h6>Hello. Welcome to safeChat, a safe space to chat!</p>
-            <p><h6>chatbot</h6>Hello. Welcome to safeChat, a safe space to chat!</p>
-            <p><h6>chatbot</h6>Hello. Welcome to safeChat, a safe space to chat!</p>
-            <p><h6>chatbot</h6>Hello. Welcome to safeChat, a safe space to chat!</p>
+            <p><h6>chatbot</h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a mattis tortor. Integer varius dignissim ullamcorper. Nunc facilisis tortor a leo auctor bibendum consectetur id lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
             {{#each messages}}
               <p><h6>{{this.username}}</h6>{{this.message}}</p>
             {{/each}}
           </div>
         </div>
-      </div>
+        <div class="scrollspy" id="marker"></div>
       </div>
     </div>
   </div>
@@ -49,7 +40,7 @@
               <input type="text" placeholder="Message" class="white grey-text text-darken-2 bubble" id="message">
             </div>
             <div class="col s1 center">
-              <a href="#"><i class="material-icons yellow blue-text small hoverable circle" id="sendMessage">arrow_upward</i></a>
+              <a href="#marker"><i class="material-icons yellow blue-text small hoverable circle" id="sendMessage">arrow_upward</i></a>
             </div>
           </div>
         </form>

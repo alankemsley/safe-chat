@@ -10,10 +10,9 @@ var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var orm = require("./config/orm");
 
-
 // Port
 var port = process.env.PORT || 3000;
-console.log("Now running on Port " + port + ".");
+console.log("Now running on port " + port + ".");
 
 // Set body-parser middleware to handle forms and json data
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,7 +31,7 @@ app.get('/', function(req, res){
 
 //WILL IT LOAD?
 orm.all("messages", function(response) {
-      console.log("Getting messages from database on load");
+      console.log("TEST: Get messages from database on load.");
     });
 
 // Connect and disconnect functions
@@ -47,12 +46,12 @@ ioConnect.on('connection', function(socket){
   socket.on("message", function(message){
     ioConnect.emit("message", message);
     messageJS.create(message, function(response) {
-      console.log("User sent a message");
+      console.log("User sent a message.");
     });
   });
   // If user disconnects
   socket.on('disconnect', function(){
-    console.log('User disconnected');
+    console.log('User disconnected.');
   });
 });
 
