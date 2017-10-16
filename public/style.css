@@ -35,6 +35,11 @@ h6 {
   padding-top: 50px;
   padding-bottom: 150px;
 }
+/* Fake Messages Section */
+#messageArea2 {
+  padding-top: 50px;
+  padding-bottom: 150px;
+}
 
 #messages {
   font-size: 18pt;
