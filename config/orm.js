@@ -23,10 +23,10 @@ var orm = {
         cb(result);
     });
   },
-  //Selecting from dummychat
-    decoy: function(cb){
-      var queryString = "SELECT * FROM dummychat;";
-      connection.query(queryString, function(err, result) {
+  //Select from dummychat
+  decoy: function(cb){
+    var queryString = "SELECT * FROM dummychat;";
+    connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
@@ -35,5 +35,6 @@ var orm = {
   }
 };
 
+// Export orm variable
 module.exports = orm;
 
