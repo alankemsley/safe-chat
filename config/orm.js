@@ -1,16 +1,35 @@
 // Connect to connection.js file
 var connection = require("./connection"); 
 
+function printQuestionMarks(num) {
+  var arr = [];
+  for (var i = 0; i < num; i++) {
+    arr.push("?");
+  }
+  return arr.toString();
+}
+// Helper function for SQL syntax.
+function objToSql(ob) {
+  var arr = [];
+  for (var key in ob) {
+    if (Object.hasOwnProperty.call(ob, key)) {
+      arr.push(key + "=" + ob[key]);
+    }
+  }
+  return arr.toString();
+}
+
 // ORM
 var orm = {
   // Select all
-  all: function(tableInput, cb) {
-    var queryString = "SELECT * FROM " + tableInput + ";";
-    connection.query(queryString, function(err, result) {
+  all: function(userMessage, cb) {
+    var queryString = "SELECT * FROM messages;";
+    connection.query(queryString, [userMessage.username, userMessage.message], function(err, result) {
       if (err) {
         throw err;
       }
       cb(result);
+      console.log(result);
     });
   },
   // Create
@@ -21,18 +40,9 @@ var orm = {
         throw err;
       }
         cb(result);
+        console.log(result);
     });
   },
-  //Select from dummychat
-  decoy: function(cb){
-    var queryString = "SELECT * FROM dummychat;";
-    connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
-      console.log(result);
-    });
-  }
 };
 
 // Export orm variable
