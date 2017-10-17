@@ -54,4 +54,3 @@ app.use("/", routes);
 
 // Listener
 app.listen(port);
-
