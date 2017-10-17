@@ -53,4 +53,4 @@ ioConnect.on("connection", function(socket){
 app.use("/", routes);
 
 // Listener
-app.listen(port);
+http.listen(port);
