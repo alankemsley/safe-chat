@@ -1,8 +1,6 @@
 $(document).ready(function(){
-  // Confirmation message for testing
-  console.log("Client-side JavaScript file (script.js) is properly linked. You may begin chatting.");
-  
-  // Variables and functions
+
+  // Variables
   var socket = io();
   var messageForm = $('#messageForm');
   var message = $('#message');
@@ -14,27 +12,29 @@ $(document).ready(function(){
     $('#messageArea2').addClass("hide");
     $('#messageArea').removeClass("hide");
     dummyShown = false;
-    Materialize.toast("Now showing real messages.", 2000);
+    Materialize.toast("Now showing real messages", 2000);
   };
   var showDummy = function() {
     $('#messageArea2').removeClass("hide");
     $('#messageArea').addClass("hide");
     dummyShown = true;
   };
-
-  // Prompt for user's name
   var name = prompt("Please enter your name.");
-
-  // If user name is blank, assign a random animal
   var randomAnimalArray = [
     "Alligator", "Anteater", "Armadillo", "Aurochi", "Axolotl", "Badger", "Bat", "Beaver", "Buffalo", "Camel", "Chameleon", "Cheetah", "Chipmunk", "Chinchilla", "Coyote", "Crow", "Dingo", "Dinosaur", "Dolphin", "Elephant", "Fox", "Giraffe", "Gopher", "Hippo", "Jackal", "Iguana", "Koala", "Lemur", "Llama", "Monkey", "Otter", "Panda", "Raccoon", "Skunk", "Squirrel", "Turtle", "Walrus", "Wombat"
   ];
   var randomAnimal = randomAnimalArray[Math.floor(Math.random()*38)];
+  var welcomeMessage = function() {
+    Materialize.toast("Welcome, " + name + "!", 4000);
+    Materialize.toast("Press ESC to go between real and fake messages", 4000);
+  };
+  
+  // Welcome message
   if (name == null || name === "") {
     name = "Anonymous " + randomAnimal;
-    Materialize.toast("Welcome, " + name + " ! Press ESC to go between real and fake messages.", 4000);
+    welcomeMessage();
   } else {
-    Materialize.toast("Welcome, " + name + " ! Press ESC to go between real and fake messages.", 4000);
+    welcomeMessage();
   }
 
   // Append message to chat window when message is sent

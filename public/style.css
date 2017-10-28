@@ -9,7 +9,8 @@ h6 {
 
 /* Header */
 #logo {
-  font-weight: bold;
+  height: 50px;
+  margin-top: 8px;
 }
 
 /* Input Section */
@@ -48,6 +49,10 @@ h6 {
 }
 
 /* Footer */
+#chat {
+  margin: 0;
+}
+
 footer {
   position: fixed;
   left: 0;
