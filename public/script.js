@@ -52,6 +52,14 @@ $(document).ready(function(){
     }
   });
 
+  $("#logo").click(function(){
+    if(dummyShown === true) {
+      showReal();
+    } else if (dummyShown === false) {
+      showDummy();
+    }
+  });
+
   // When user clicks SEND, send message to DB and clear input field
   $('#sendMessage').click(function(){
     // If the user sends a legitiamte message:

@@ -1,4 +1,7 @@
-/* General */
+/***********************************
+GENERAL
+***********************************/
+
 html {
   font-family: Quicksand, sans-serif;
 }
@@ -7,17 +10,48 @@ h6 {
   color: #2196f3;
 }
 
-/* Header */
+/***********************************
+HEADER
+***********************************/
+
 #logo {
   height: 50px;
   margin-top: 8px;
 }
 
-/* Input Section */
+/***********************************
+MESSAGE DISPLAY SECTION
+***********************************/
+
+#messageArea {
+  padding-top: 50px;
+  padding-bottom: 150px;
+}
+
+#messageArea2 {
+  padding-top: 50px;
+  padding-bottom: 150px;
+}
+
+#messages {
+  font-size: 18pt;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+/***********************************
+MESSAGE INPUT SECTION
+***********************************/
+
 #message {
   padding-left: 20px;
   font-size: 18pt;
 }
+
+#chat {
+  margin: 0;
+}
+
 .bubble {
   border-radius: 25px !important;
 }
@@ -31,27 +65,9 @@ h6 {
   height: 44px;
 }
 
-/* Messages Section */
-#messageArea {
-  padding-top: 50px;
-  padding-bottom: 150px;
-}
-/* Fake Messages Section */
-#messageArea2 {
-  padding-top: 50px;
-  padding-bottom: 150px;
-}
-
-#messages {
-  font-size: 18pt;
-  padding-left: 25px;
-  padding-right: 25px;
-}
-
-/* Footer */
-#chat {
-  margin: 0;
-}
+/***********************************
+STICKY FOOTER
+***********************************/
 
 footer {
   position: fixed;
@@ -69,3 +85,22 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+/***********************************
+RESPONSIVE DESIGN
+***********************************/
+
+@media screen and (max-width: 600px) {
+  #header {
+    height: 40px;
+  }
+  
+  #logo {
+    height: 40px;
+  }
+
+  #input-field {
+    width: 80%;
+  }
+}
+
