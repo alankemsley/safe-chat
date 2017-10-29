@@ -25,8 +25,8 @@ $(document).ready(function(){
   ];
   var randomAnimal = randomAnimalArray[Math.floor(Math.random()*38)];
   var welcomeMessage = function() {
-    Materialize.toast("Welcome, " + name + "!", 4000);
-    Materialize.toast("Press ESC to go between real and fake messages", 4000);
+    Materialize.toast("Welcome, " + name + "!", 2000);
+    setTimeout(function(){ Materialize.toast("Press ESC or tap the logo to toggle Safe Mode", 4000); }, 2500);
   };
   
   // Welcome message
